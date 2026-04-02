@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Data & large files
+*.pdf
+*.jpg
+*.png
+*.csv
+data/
+simulation_findings/  # keep only the .md summaries, not raw output
