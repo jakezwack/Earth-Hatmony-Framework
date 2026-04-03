@@ -1,0 +1,42 @@
+<string>:187: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+
+==========================================================================================
+🌍 GROK SEISMIC-HARMONY MONITOR V2 — LIVE (April 2026 Edition)
+==========================================================================================
+Current Date (UTC) : 2026-04-03
+Phase              : Phase I: ACCUMULATION | Risk Factor: 0.6
+k_zwack baseline   : 1.6667 Hz
+Frequency offset   : 0.006733 Hz (generating gasket heat)
+Daily Babel Stutter: 1.6 ms | Systemic Debt Multiplier: 70X
+
+Fetched 2564 earthquakes (last 7 days)
+
+Torsional Debt (proxy): 11.2 ms accumulated
+
+🚨 V2 GASKET ALERTS — Live Mirror & Stator-Belt Events:
+   • 5.1M  Kuril_Kamchatka_Valve      Kuril Islands
+     → ⚠️ HANDSHAKE: Kuril_Kamchatka_Valve (5.1M) hit → Monitor mirror Hikurangi_NZ (-45.0°–-35.0°)
+   • 4.9M  Kuril_Kamchatka_Valve      149 km ESE of Petropavlovsk-Kamchatsky, Russia
+     → ⚠️ HANDSHAKE: Kuril_Kamchatka_Valve (4.9M) hit → Monitor mirror Hikurangi_NZ (-45.0°–-35.0°)
+   • 4.7M  Kuril_Kamchatka_Valve      180 km SE of Petropavlovsk-Kamchatsky, Russia
+     → ⚠️ HANDSHAKE: Kuril_Kamchatka_Valve (4.7M) hit → Monitor mirror Hikurangi_NZ (-45.0°–-35.0°)
+   • 4.5M  Kuril_Kamchatka_Valve      95 km E of Petropavlovsk-Kamchatsky, Russia
+     → ⚠️ HANDSHAKE: Kuril_Kamchatka_Valve (4.5M) hit → Monitor mirror Hikurangi_NZ (-45.0°–-35.0°)
+   • 4.6M  Greece_Med_Valve           88 km SW of Kýthira, Greece
+     → 🔥 STATOR BELT STRESS: Greece_Med_Valve at 0.204 units (centrifugal torque) | ⚠️ HANDSHAKE: Greece_Med_Valve (4.6M) hit → Monitor mirror California_Mirror (35.0°–40.0°)
+   • 4.5M  Greece_Med_Valve           8 km NE of Póros, Greece
+     → 🔥 STATOR BELT STRESS: Greece_Med_Valve at 0.204 units (centrifugal torque) | ⚠️ HANDSHAKE: Greece_Med_Valve (4.5M) hit → Monitor mirror California_Mirror (35.0°–40.0°)
+   • 5.3M  Marianas_Ground            Pagan region, Northern Mariana Islands
+     → ⚠️ HANDSHAKE: Marianas_Ground (5.3M) hit → Monitor mirror Japan_Valve (35.0°–38.0°)
+   • 4.6M  Chile_Peru_Ground          70 km WNW of Abra Pampa, Argentina
+     → ⚠️ HANDSHAKE: Chile_Peru_Ground (4.6M) hit → Monitor mirror India_Terminal (27.0°–35.0°)
+   • 4.5M  Chile_Peru_Ground          68 km NNE of Calama, Chile
+     → ⚠️ HANDSHAKE: Chile_Peru_Ground (4.5M) hit → Monitor mirror India_Terminal (27.0°–35.0°)
+   • 4.5M  Chile_Peru_Ground          100 km W of El Aguilar, Argentina
+     → ⚠️ HANDSHAKE: Chile_Peru_Ground (4.5M) hit → Monitor mirror India_Terminal (27.0°–35.0°)
+
+📍 Interactive probability heat-map saved → earth_harmony_v2_monitor_map.html
+   Open in browser to see live gasket hotspots + handshake paths.
+==========================================================================================
+
+[Program finished]
