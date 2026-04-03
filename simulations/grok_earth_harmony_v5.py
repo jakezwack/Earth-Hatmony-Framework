@@ -17,7 +17,7 @@ import numpy as np
 # harmonic baseline, node impedance, mirror resonances, and every major Earth
 # Orientation Parameter.
 #
-# New in this update: 70-year inner-core oscillation (Yang & Song 2023) + 
+# New in V5: 70-year inner-core oscillation (Yang & Song 2023) + 
 # Sabu-style cavitation index for tectonic lubrication.
 #
 # Encrypted Credit (base64 decode to reveal full attribution):
@@ -31,7 +31,7 @@ import numpy as np
 # Contributions and integration ideas are welcome.
 # =============================================================================
 
-# V5 Constants — 5/3 Hz harmonic foundation
+# V5 Constants
 K_ZWACK = 5 / 3.0
 SHARP_FREQ = 1.6734
 FREQ_DEVIATION_HZ = SHARP_FREQ - K_ZWACK
@@ -48,7 +48,7 @@ PHASES = {
     (19, 30): {"name": "Phase IV: REBALANCING",       "factor": 0.8},
 }
 
-# Global Gasket Grid — Laminated Stator with Node Impedance + Mirrors
+# Global Gasket Grid
 GASKETS = {
     "Cascadia_Gasket": {"lat_range": (40.3, 49.0), "lon_range": (-128.0, -120.0), "type": "Accumulator", "impedance": 0.9, "mirror": "Japan_Valve"},
     "Japan_Valve": {"lat_range": (35.0, 38.0), "lon_range": (140.0, 146.0), "type": "Discharge", "impedance": 0.2, "mirror": "Fiji_Kermadec_Ground"},
@@ -81,17 +81,21 @@ def is_in_stator_belt(lat):
     return 30.0 <= abs(lat) <= 45.0
 
 def calculate_inner_core_modulator(year):
-    """70-year multidecadal oscillation (Yang & Song 2023)."""
     period = 70.0
-    epoch = 2009.5  # pause center
+    epoch = 2009.5
     phase = (2 * np.pi * (year - epoch)) / period
     core_mod = np.cos(phase)
     return core_mod
 
 def calculate_cavitation_index(fluid_pressure=1.0, slip_velocity=1.0):
-    """Sabu-style impeller logic for tectonic lubrication."""
     cavitation_index = np.tanh(fluid_pressure * slip_velocity)
     return round(cavitation_index, 4)
+
+def update_harmony_score(base_score, year):
+    core_mod = calculate_inner_core_modulator(year)
+    debt_pressure = abs(core_mod)
+    updated_score = base_score * (1 + (0.15 * debt_pressure))
+    return updated_score, core_mod
 
 def calculate_node_stress(gasket, phase_factor, total_mod, cavitation_index):
     omega_n = gasket["impedance"]
@@ -142,13 +146,10 @@ def calculate_all_modulators(iers, current_year):
     chandler_phase = (date.today() - date(2026, 1, 1)).days % 433
     chandler_mod = 1 + 0.15 * math.sin(2 * math.pi * chandler_phase / 433)
     geomag_mod = 1.05
-    # Antikythera pin-and-slot modulator
     effective_e = 0.0166
     theta = 2 * math.pi * (date.today().timetuple().tm_yday / 365.25)
     pin_slot_mod = 1 + effective_e * math.cos(theta)
-    # New 70-year inner-core modulator
     core_mod = calculate_inner_core_modulator(current_year)
-    # New Sabu-style cavitation index
     cavitation_index = calculate_cavitation_index()
     lunar_flag = " (near Full Moon / Perigee influence)" if date.today().day in [2, 13, 28] else ""
     total_mod = polar_mod * secular_mod * tidal_mod * chandler_mod * geomag_mod * pin_slot_mod
