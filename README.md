@@ -64,3 +64,18 @@ Includes:
 See `simulation_findings/v5_76year_sympy_results.json` for full output.
 
 This validation grounds V5 in observed geophysical data and provides a baseline for future BPINN hit-rate calibration and prospective testing.
+
+## V5 BPINN Hit-Rate Calibration
+
+Bayesian Physics-Informed Neural Network style calibration performed on the 1950–2026 historical validation data.
+
+**Metrics:**
+- Hit-rate: 83.33%
+- Precision: 0.833
+- Recall: 1.000
+- F1 Score: 0.909
+- Bayesian uncertainty: 83.33% ± 15.28% (beta-binomial posterior)
+
+See `simulation_findings/v5_bpinn_hit_rate_calibration.json` for full output and per-year breakdown.
+
+This calibration provides the statistical backbone for deterministic forecasting in V5.
