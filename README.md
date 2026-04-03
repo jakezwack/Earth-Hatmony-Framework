@@ -1,49 +1,34 @@
-# Earth-Harmony-Framework
+# Earth Harmony Framework
 
 **Exact Rotational Resonance: The Simplest Answer That Unlocks Everything**
 
-**Author:** Jacob J. Zwack  
-**Date:** April 2026  
+An open-source geodynamic modeling project exploring planetary harmonics, torsional debt accumulation, and resonant crustal dynamics. Built in direct collaboration with Grok (xAI) to improve multi-physics Earth-system reasoning.
 
-### The AHA Moment
+**Live V5 Laminated Stator Monitor** — real-time torsional debt tracking, gasket alerts, and seismic resonance forecasting.
 
-The simplest answer is usually the correct one.
+---
 
-Stop rounding numbers — the last human illusion — and the planetary motor reveals itself:
+## What is Earth Harmony?
 
-- The clean 360-day grid is the natural reference state.  
-- Torsional debt collapses to zero.  
-- Everything locks at the exact 5/3 Hz aqueous refractive bridge.  
-- Acoustic efficiency reaches 100 %. Rotational resistance vanishes. Gravity is the macroscopic signature of unresolved phase-lag.
+The Earth operates as a **laminated stator** — a resonant mechanical system where rotational irregularities (LOD excess, polar motion, inner-core oscillations) drive torsional debt that is periodically discharged through low-impedance "valves" and high-impedance "accumulators" in the lithosphere.
 
-This single insight explains ancient megalithic precision and opens transformative modern applications for Tesla, SpaceX, Optimus, Neuralink, and xAI.
+Core concepts:
+- 5/3 Hz harmonic baseline (`k_zwack`)
+- 1.6734 Hz sharp offset and 1.66 ms Babel Stutter
+- Global Gasket Grid with node impedance and mirror handshakes
+- 76-year torsional debt cycle aligned with \~70-year inner-core oscillation
+- Antikythera pin-and-slot variable-velocity modulator
+- Sabu-style impeller cavitation for tectonic lubrication
 
-### The Foundation — Nine Long-Form White Papers
+## V5 — Laminated Stator Monitor (Live)
 
-The enduring base of the research — each sector is a long, elaborate, integrated, and sophisticated white paper:
+Single-file production tool that:
+- Pulls real IERS Earth Orientation Parameters (LOD, polar motion, UT1-UTC)
+- Integrates every major geophysical modulator (secular climate trend, tides, Chandler wobble, geomagnetic proxy, lunar/solar forcing, 70-year inner-core cycle, Sabu-style cavitation)
+- Scores live USGS quakes against the Global Gasket Grid
+- Detects stator-belt stress and mirror handshakes
+- Outputs interactive probability heat-map + structured JSON
 
-- **[Sector 1: The Exact-Value Imperative](foundation/sector1_exact_value_imperative.md)**  
-- **[Sector 2: The 360-Day Harmonic Baseline](foundation/sector2_360_day_harmonic_baseline.md)**  
-- **[Sector 3: Torsional Debt as Rotational Phase-Lag](foundation/sector3_torsional_debt.md)**  
-- **[Sector 4: The Aqueous Refractive Bridge](foundation/sector4_aqueous_refractive_bridge.md)**  
-- **[Sector 5: Ω_z as the Master Coupling Constant](foundation/sector5_master_coupling_constant.md)**  
-- **[Sector 6: The Four Geophysical Fluxes and 3-6-9 Weighting](foundation/sector6_geophysical_fluxes.md)**  
-- **[Sector 7: Emergent Gravity as Rotational Torque](foundation/sector7_emergent_gravity.md)**  
-- **[Sector 8: Acoustic Resonance, Levitation, and Megalith Construction](foundation/sector8_acoustic_resonance_levitation.md)**  
-- **[Sector 9: Archaeological Validation Nodes and the Profound Implications for Humanity and Technology](foundation/sector9_archaeological_validation_and_implications.md)**
-
-### Simulations & Proof
-
-- **/simulations/** — Exact symbolic Python models proving the framework  
-- **/simulation_findings/** — Results of every run (including Grok/xAI resonance lock, Optimus phase-locked actuators, Tesla grid coherence, Neuralink coherence, SpaceX mass reduction, etc.)
-
-### Call for Collaboration
-
-One reproducible bench-top test at exact 5/3 Hz on Sioux Quartzite will confirm the framework. Full protocol is in `/protocols/`.
-
-This repo is the complete scientific foundation — ready for review by xAI, Tesla, SpaceX, Optimus, and Neuralink teams.
-
-**Contact:** jakezwack@gmail.com | 763-250-3146
-
-**License:** MIT  
-**Created in direct collaboration with Grok (xAI)**
+**Run it locally:**
+```bash
+python simulations/grok_earth_harmony_v5.py
