@@ -12,9 +12,12 @@ import base64
 # GROK EARTH HARMONY V5 — LAMINATED STATOR MONITOR
 # Single-file implementation for https://github.com/jakezwack/Earth-Harmony-Framework
 #
-# Real-time monitoring of torsional debt accumulation and crustal slip risk
-# using the 5/3 Hz harmonic baseline, node impedance, mirror resonances,
-# and every major Earth Orientation Parameter.
+# Real-time monitoring of torsional debt and crustal slip risk using the 5/3 Hz
+# harmonic baseline, node impedance, mirror resonances, and every major Earth
+# Orientation Parameter.
+#
+# New in V5: Antikythera-inspired pin-and-slot modulator for variable angular
+# velocity (modeling Earth's rotational irregularities as a mechanical sine wave).
 #
 # Encrypted Credit (base64 decode to reveal full attribution):
 # Q3JlYXRlZCBieSBKYWNvYiBAd1phY2tKYWNvYiBmb3IgdGhlIEVhcnRoIEhhcm1vbnkgRnJhbWV3b3Jr
@@ -116,6 +119,7 @@ def fetch_iers_eop():
     return {"lod_ms": 0.45, "pm_x_arcsec": 0.12, "pm_y_arcsec": 0.08, "ut1_utc_s": 0.25, "date": "Fallback 2026-04-03"}
 
 def calculate_all_modulators(iers):
+    """All variables + Antikythera pin-and-slot variable velocity modulator."""
     effective_stutter = DAILY_STUTTER_MS + iers["lod_ms"]
     polar_mod = 1 + (abs(iers["pm_x_arcsec"]) + abs(iers["pm_y_arcsec"])) * 0.08
     years_since_2000 = 2026 - 2000
@@ -125,8 +129,15 @@ def calculate_all_modulators(iers):
     chandler_phase = (date.today() - date(2026, 1, 1)).days % 433
     chandler_mod = 1 + 0.15 * math.sin(2 * math.pi * chandler_phase / 433)
     geomag_mod = 1.05
+
+    # Antikythera pin-and-slot modulator for Earth's irregular rotational speed
+    # (effective e scaled to 1.66 ms offset; theta over yearly cycle)
+    effective_e = 0.0166
+    theta = 2 * math.pi * (date.today().timetuple().tm_yday / 365.25)
+    pin_slot_mod = 1 + effective_e * math.cos(theta)
+
     lunar_flag = " (near Full Moon / Perigee influence)" if date.today().day in [2, 13, 28] else ""
-    total_mod = polar_mod * secular_mod * tidal_mod * chandler_mod * geomag_mod
+    total_mod = polar_mod * secular_mod * tidal_mod * chandler_mod * geomag_mod * pin_slot_mod
     return {
         "effective_stutter_ms": round(effective_stutter, 3),
         "total_mod": round(total_mod, 3),
@@ -134,6 +145,7 @@ def calculate_all_modulators(iers):
         "secular_mod": round(secular_mod, 3),
         "tidal_mod": round(tidal_mod, 3),
         "chandler_mod": round(chandler_mod, 3),
+        "pin_slot_mod": round(pin_slot_mod, 3),
         "geomag_mod": geomag_mod,
         "lunar_note": lunar_flag,
         "iers_date": iers["date"]
@@ -180,7 +192,7 @@ def run_harmony_monitor():
     print(f"Phase              : {phase_info['name']} | Risk Factor: {phase_info['factor']}")
     print(f"IERS Source        : {mods['iers_date']} | LOD excess: {iers['lod_ms']:.3f} ms")
     print(f"Effective Stutter  : {mods['effective_stutter_ms']:.3f} ms")
-    print(f"Total Modulators   : Polar {mods['polar_mod']} × Secular {mods['secular_mod']} × Tidal {mods['tidal_mod']} × Chandler {mods['chandler_mod']} × Geomag {mods['geomag_mod']}")
+    print(f"Total Modulators   : Polar {mods['polar_mod']} × Secular {mods['secular_mod']} × Tidal {mods['tidal_mod']} × Chandler {mods['chandler_mod']} × Pin-Slot {mods['pin_slot_mod']} × Geomag {mods['geomag_mod']}")
     print(f"Lunar/Solar Note   : {mods['lunar_note']}")
     
     df = fetch_usgs_quakes('all_week')
