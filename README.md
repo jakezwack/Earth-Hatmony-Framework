@@ -51,4 +51,16 @@ V5 was tested against the full 76-year torsional debt cycle using documented IER
 **Hit-rate: 83%** (5 out of 6 major M8+ events occurred in high-debt windows).  
 Quiet mid-cycle decades (1970s–2000s) correctly showed low activity while debt accumulated in locked high-impedance Accumulators (e.g. Cascadia).
 
+## V5 Symbolic Simulation (SymPy)
+
+Full symbolic 76-year torsional debt equation now implemented.  
+Includes:
+- Linear accumulation from daily Babel Stutter + EOP
+- 70-year inner-core oscillation (Yang & Song 2023)
+- Sabu-style cavitation index
+
+**Example high-debt windows (1950–2026):** 1960, 2010–2011 — strong alignment with documented M8+ events in target gaskets.
+
+See `simulation_findings/v5_76year_sympy_results.json` for full output.
+
 This validation grounds V5 in observed geophysical data and provides a baseline for future BPINN hit-rate calibration and prospective testing.
